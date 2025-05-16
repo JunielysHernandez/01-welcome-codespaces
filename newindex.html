@@ -6,12 +6,64 @@
   <title>Junielys H.'s Profile Card</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .profile-card p {
-      color: #4B2067; /* dark, professional purple */
+    /* Removed the .profile-card::before circle */
+    .profile-img {
+      width: 300px;
+      height:300px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 1.2rem auto 1rem auto;
+      box-shadow: 0 2px 8px rgba(101, 129, 255, 0.15);
+    }
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #e0e7ff 0%, #fbc2eb 100%);
+      /* Removed polka dot gradients for a smoother look */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .profile-card ul {
+      list-style: disc inside;
+      padding-left: 1.5rem;
+      margin: 1rem 0 0 0;
+      text-align: left;
+      width: 100%;         /* Ensures the list takes full card width */
+      box-sizing: border-box;
+    }
+
+    .profile-card ul li {
+      margin-bottom: 0.8rem; /* Adds more space between each link */
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: left;    /* Ensures each item is left-aligned */
+    }
+
+    .profile-card ul li:last-child {
+      margin-bottom: 0;
     }
 
     .profile-card h4 {
-      color: #AD1457; /* dark, professional magenta */
+      text-align: left;
+      width: 100%;
+      margin-left: 0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #AD1457; /* Optional: dark magenta for style */
+    }
+
+    .profile-separator {
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #AD1457, transparent);
+      border: none;
+      margin: 1.5rem auto;
     }
   </style>
 </head>
@@ -21,9 +73,12 @@
   </header>
   <main>
     <section class="profile-card">
-      <h3>Web Developer Student</h3>
+      <img src="IMG/IMG_1690.JPG" alt="Junielys Hernandez profile photo" class="profile-img">
       <h2>Junielys Hernandez</h2>
+      <hr class="profile-separator">
+      <h3>Web Developer Student</h3>
       <p>Passionate about learning and curious on how coding works. Loves learning new things about how technology works and what creative things you can do with it.</p>
+      <hr class="profile-separator">
       <h4>My favorite websites:</h4>
       <ul>
         <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>

@@ -113,23 +113,6 @@ main {
 }
 
 /* 
-  Decorative circle above the card for Y2K flair:
-  - Gradient fill and soft shadow
-  - Circular shape
-  - Space below for separation
-*/
-.profile-card::before {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 90px;
-  margin-bottom: 1.2rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #b6e0fe 40%, #fbc2eb 100%);
-  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.18);
-}
-
-/* 
   Name styles:
   - Large, bold, dark blue with subtle highlight
   - Spaced letters for style

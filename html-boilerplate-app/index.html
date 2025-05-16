@@ -3,14 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Boilerplate App</title>
+  <title>The Student Portal</title>
   <meta name="description" content="A simple HTML boilerplate for web development.">
   <meta name="keywords" content="HTML, boilerplate, web development">
   <meta name="author" content="Your Name">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .page-title {
+      text-align: center;
+      margin-top: 2.5rem;
+      margin-bottom: 2rem;
+      font-size: 2.8rem; /* Increased from 2.2rem */
+      color: #1a237e;
+      letter-spacing: 1px;
+      font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+      border: 3px dashed #b6e0fe;
+      border-radius: 18px;
+      padding: 1rem 2rem;
+      background: rgba(246, 246, 255, 0.7);
+      box-shadow: 0 2px 12px rgba(102, 126, 234, 0.10);
+      display: inline-block;
+    }
+    .welcome-title {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #4B2067;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .prompt-text {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #AD1457;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to the HTML Boilerplate App</h1>
-  <p>This is a basic structure for your web projects.</p>
+  <div style="text-align: center;">
+    <h1 class="page-title">The Student Portal</h1>
+  </div>
+  <div class="center-box" id="centerBox">
+    <div class="welcome-title">Welcome To The Student Portal</div>
+    <div class="prompt-text">What is your name?</div>
+    <form id="nameForm">
+      <input type="text" id="studentName" placeholder="Enter your name" required>
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('nameForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('studentName').value.trim();
+      const centerBox = document.getElementById('centerBox');
+      centerBox.innerHTML = `<div class="welcome-title">Welcome ${name}!</div>`;
+    });
+  </script>
 </body>
 </html>
