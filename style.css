@@ -1,68 +1,195 @@
+/* Use border-box so padding and borders are included in element width/height */
 * {
   box-sizing: border-box;
 }
 
+/* 
+  Body styles:
+  - Full viewport height
+  - Remove default margin
+  - Flexbox layout to center content
+  - Y2K-inspired pastel gradient with sheer polka dots as background
+  - Modern, readable font stack
+*/
 body {
   height: 100vh;
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, #a5b4ff 0%, #a98bc7 100%);
+  justify-content: flex-start;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  background: 
+    linear-gradient(120deg, #e0e7ff 0%, #fbc2eb 100%), /* pastel gradient */
+    radial-gradient(circle, rgba(255,255,255,0.25) 8px, transparent 10px), /* large sheer dots */
+    radial-gradient(circle, rgba(255,255,255,0.18) 8px, transparent 10px); /* smaller sheer dots */
+  background-size: cover, 40px 40px, 80px 80px; /* size for each background layer */
+  background-position: center, 0 0, 20px 20px; /* offset polka dots for layered effect */
 }
 
-.container {
-  background: white;
-  padding: 3rem 4rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* 
+  Header styles:
+  - Full width
+  - Y2K gradient background
+  - Soft shadow and accent border
+  - Padding for space
+  - Margin below for separation
+*/
+header {
+  width: 100%;
+  background: linear-gradient(90deg, #b6e0fe 0%, #fbc2eb 100%);
+  box-shadow: 0 4px 16px 0 rgba(102, 126, 234, 0.15);
+  border-bottom: 3px solid #a5b4ff;
+  padding: 2rem 0 1rem 0;
+  margin-bottom: 2rem;
+}
+
+/* 
+  Main heading styles:
+  - Large, bold, and centered
+  - Dark blue color with Y2K-style white glow
+  - Letter spacing for style
+  - Remove default margin
+  - Consistent font
+*/
+header h1 {
+  font-size: 2.8rem;
   text-align: center;
+  color: #1a237e;
+  letter-spacing: 2px;
+  text-shadow: 1px 2px 8px #fff, 0 1px 0 #b0b3b8;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
 }
 
-h1 {
-  color: #2d3748;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-}
-
-input {
+/* 
+  Main content area:
+  - Flexbox to center content horizontally
+  - Align items to the top
+  - Take up remaining vertical space
+*/
+main {
+  flex: 1;
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 6px;
-  font-size: 1rem;
-  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-input:focus {
-  border-color: #667eea;
+/* 
+  Container styles (not used in this layout, but reset just in case):
+  - Remove background, shadow, padding, and border radius
+*/
+.container {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
 }
 
-button {
-  width: 100%;
-  background: #667eea;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
+/* 
+  Profile card styles:
+  - White background for a "card" look
+  - Max width for readability
+  - Padding for space inside the card
+  - Rounded corners and soft shadow for a glassy effect
+  - Soft blue border for accent
+  - Flexbox to stack content vertically and center it
+  - Hide overflow for rounded corners
+*/
+.profile-card {
+  background: #fff;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 6px rgba(0,0,0,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2.5px solid #a5b4ff;
+  position: relative;
+  overflow: hidden;
 }
 
-button:hover {
-  background: #5a67d8;
+/* 
+  Decorative circle above the card for Y2K flair:
+  - Gradient fill and soft shadow
+  - Circular shape
+  - Space below for separation
+*/
+.profile-card::before {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b6e0fe 40%, #fbc2eb 100%);
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.18);
 }
 
-.hidden {
-  display: none;
+/* 
+  Name styles:
+  - Large, bold, dark blue with subtle highlight
+  - Spaced letters for style
+  - Margin below for separation
+*/
+.profile-card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.7rem;
+  color: #1a237e;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-shadow: 0 1px 0 #fff;
 }
 
-#greeting {
-  margin-top: 1rem;
-  color: #2d3748;
+/* 
+  Role/title styles:
+  - Medium size, bold, soft purple color with highlight
+  - Spaced letters for style
+  - Margin below for separation
+*/
+.profile-card h3 {
+  margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
-  white-space: pre-line;
+  color: #667eea;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+/* 
+  Bio paragraph styles:
+  - Slightly larger, readable text
+  - Increased line height for readability
+  - Centered text with a sheer, glassy background
+  - Rounded corners and subtle shadow for a soft look
+*/
+.profile-card p {
+  font-size: 1.13rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0;
+  padding: 0 0.5rem;
+  text-align: center;
+  background: rgba(246, 246, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(102, 126, 234, 0.05);
+}
+
+/* 
+  Footer note styles:
+  - Small, light gray, centered text
+  - Letter spacing and subtle highlight for style
+  - Margin for spacing from content above
+*/
+.footer-note {
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+  margin: 2rem 0 0.5rem 0;
+  letter-spacing: 0.5px;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 1px 0 #fff;
 }
